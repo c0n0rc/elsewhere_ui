@@ -20,7 +20,7 @@ class Account extends Component {
   render() {
     return (
       <Row>
-        <Col md={{ span: 12 }}>
+        <Col md={{ span: 8, offset: 2 }}>
           ACCOUNT
         </Col>
       </Row>

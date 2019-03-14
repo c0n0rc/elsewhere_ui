@@ -10,6 +10,8 @@ import Preferences from './views/preferences.js';
 import Signup from './views/signup.js';
 import Account from './views/account.js';
 
+import './styles/common.css'
+
 class App extends Component {
 
   // Set state
@@ -19,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div class="container-fluid">
+        <div className='container-fluid'>
 
           {/* Header */}
           <Header />

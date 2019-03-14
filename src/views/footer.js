@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
+// Styles
+import '../styles/footer.css';
+
 class Footer extends Component {
 
   // Set state 
@@ -12,11 +15,11 @@ class Footer extends Component {
   // Render component
   render() {
     return (
-      <div className="fixed-bottom">
-        <Col md={{ span: 12 }}>
-          FOOTER
+      <Row className='footer-row'>
+        <Col md={{ span: 4, offset: 4 }} className='footer-icons'>
+          <i className="fab fa-instagram fa-2x"></i>
         </Col>
-      </div>
+      </Row>
     );
   }
 }

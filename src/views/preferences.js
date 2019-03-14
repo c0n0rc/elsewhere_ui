@@ -13,7 +13,7 @@ class Preferences extends Component {
   render() {
     return (
       <Row>
-        <Col md={{ span: 12 }}>
+        <Col md={{ span: 8, offset: 2 }}>
           PREFERENCES
         </Col>
       </Row>
