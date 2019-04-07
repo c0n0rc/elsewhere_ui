@@ -1,5 +1,5 @@
 /* Fade in frames. */
-/* https://stackoverflow.com/questions/11679567/using-css-for-fade-in-effect-on-page-load */
+/* (Ref: https://stackoverflow.com/questions/11679567/using-css-for-fade-in-effect-on-page-load) */
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }

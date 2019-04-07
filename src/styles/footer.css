@@ -10,3 +10,7 @@
 .footer-icons {
   padding: 20px;
 }
+
+.link-icon {
+  display: inline-block;
+}

@@ -25,8 +25,8 @@ class Landing extends Component {
 
   // Scroll to 'Register' section after clicking 'Get Started'
   handleClick = () => {
-    var element = document.getElementById('name-reg-input');
-    element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'center'});
+    var element = document.getElementById('email-reg-input');
+    element.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'});
   }
 
   // Render component

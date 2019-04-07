@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import validator from 'validator';
 
 // Bootstrap Components
@@ -28,16 +29,14 @@ class Login extends Component {
     
     this.state = {
       email: '',
-      password: '',
       isValid: {
         email: false,
-        password: false,
-        form: false
+        password: false
       },
       errorMessages: {
         email: '',
         password: ''
-      },
+      }
     }
   
   }
@@ -48,14 +47,62 @@ class Login extends Component {
   }
 
   // Set states
-  // Ref: https://learnetto.com/blog/how-to-do-simple-form-validation-in-reactjs
+  // (Ref: https://learnetto.com/blog/how-to-do-simple-form-validation-in-reactjs)
   handleUserInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    this.setState({[name]: validator.trim(value)}, () => this.validateField(name, value));
+    this.setState({[name]: validator.trim(value)});
   } 
 
-  // Validate each input field
+  // Handle user submitting form
+  handleSubmit = () => {
+    // Validate form fields
+    for (var key in this.state) {
+      this.validateField(key, this.state[key]);
+    }
+
+    // Validate password (reference the field rather than storing this in state)
+    this.validateField('password', this.password.value);
+
+    // Can we submit? 
+    if (this.isFormValid()) {
+
+      // Validate user credentials @TODO
+      // (Ref: https://reactjs.org/docs/faq-ajax.html)
+      // 1. Check if user exists and password matches (Your username or password doesn't match what we have on file.)
+      fetch('http://localhost:3003/user', {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+          method: 'POST',
+          body: JSON.stringify(
+              {
+                'email': this.state.email,
+                'password': this.password.value
+              }
+            )
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            console.log('result: ' + result);
+          },
+          (error) => {
+            console.log('error: ' + error);
+
+            // Redirect on success @TODO
+            this.props.history.push('/trips');
+
+            // Display error message on error @TODO
+          }
+        )
+
+    }
+
+  }
+
+  // Validate given form field
   validateField = (name, value) => {
     let isValid = this.state.isValid;
     let errorMessages = this.state.errorMessages;
@@ -97,8 +144,6 @@ class Login extends Component {
       'errorMessages': errorMessages
       });
 
-    this.isFormValid();
-
   }
 
   // Add 'has-error' class to invalid form fields
@@ -106,10 +151,9 @@ class Login extends Component {
     return error.length > 0 ? 'has-error' : '';
   }
 
-  // Check if all input fields are valid. Disable submit accordingly
+  // Check if all form fields are valid
   isFormValid = () => {
-    var valid = this.state.isValid.email && this.state.isValid.password;
-    this.setState({'formValid': valid});
+    return this.state.isValid.email && this.state.isValid.password;
   }
 
   // Render component
@@ -125,11 +169,17 @@ class Login extends Component {
                   Welcome back.
                 </Col>
               </Row>
-              
               <div className='form-group'>
                 <Row>
                   <Col md={{ span: 12 }}>
-                    <input type='email' className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.email)}`} id='email-reg-input' placeholder='email' name='email' onChange={this.onChange} value={this.state.email}/>
+                    <input type='email'
+                      className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.email)}`}
+                      id='email-reg-input'
+                      placeholder='email'
+                      name='email'
+                      onChange={this.onChange}
+                      value={this.state.email}
+                    />
                   </Col>
                 </Row>
                 {this.state.errorMessages.email.length > 0 &&
@@ -142,7 +192,13 @@ class Login extends Component {
                 }
                 <Row>
                   <Col md={{ span: 12 }}>
-                    <input type='password' className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.password)}`} id='password-reg-input' placeholder='password' name='password' onChange={this.onChange}/>
+                    <input type='password'
+                      className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.password)}`}
+                      id='password-reg-input'
+                      placeholder='password'
+                      name='password'
+                      ref={node => this.password = node}
+                    />
                   </Col>
                 </Row>
                 {this.state.errorMessages.password.length > 0 &&
@@ -156,7 +212,7 @@ class Login extends Component {
               </div>
               <Row>
                 <Col md={{ span: 3 }}>
-                  <Button className='fas fa-arrow-right sml-purple-icon-button fa-2x' disabled={!this.state.formValid}/>
+                  <Button className='fas fa-arrow-right sml-purple-icon-button fa-2x' onClick={this.handleSubmit}/>
                 </Col>
               </Row>
             </Col>
@@ -171,4 +227,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login)

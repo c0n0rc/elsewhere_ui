@@ -6,8 +6,8 @@ import ScrollToTop from './utils/scrollToTop.js';
 import Header from './views/header.js';
 import Home from './views/home/home.js';
 import Login from './views/login.js';
-import Profile from './views/profile.js';
-import Plan from './views/plan.js';
+import Account from './views/account.js';
+import About from './views/about.js';
 import Trip from './views/trip.js';
 import Footer from './views/footer.js';
 
@@ -37,18 +37,18 @@ class App extends Component {
               <Login />
             )}/>
             
-            {/* Profile */}
-            <Route exact={true} path='/profile' render={() => (
-              <Profile />
+            {/* Account */}
+            <Route exact={true} path='/account' render={() => (
+              <Account />
             )}/>
 
-            {/* Plan */}
-            <Route exact={true} path='/plan' render={() => (
-              <Plan />
+            {/* About */}
+            <Route exact={true} path='/about' render={() => (
+              <About />
             )}/>
 
             {/* Trip */}
-            <Route exact={true} path='/my_trip' render={() => (
+            <Route exact={true} path='/trips' render={() => (
               <Trip />
             )}/>
 

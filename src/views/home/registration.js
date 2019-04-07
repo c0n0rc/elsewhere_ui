@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import validator from 'validator';
 
 // Bootstrap Components
@@ -21,14 +22,12 @@ class Registration extends Component {
       lname: '',
       email: '',
       phone: '',
-      password: '',
       isValid: {
         fname: false,
         lname: false,
         email: false,
         phone: false,
-        password: false,
-        form: false
+        password: false
       },
       errorMessages: {
         fname: '',
@@ -36,7 +35,7 @@ class Registration extends Component {
         email: '',
         phone: '',
         password: ''
-      },
+      }
     }
   
   }
@@ -47,14 +46,66 @@ class Registration extends Component {
   }
 
   // Set states
-  // Ref: https://learnetto.com/blog/how-to-do-simple-form-validation-in-reactjs
+  // (Ref: https://learnetto.com/blog/how-to-do-simple-form-validation-in-reactjs)
   handleUserInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    this.setState({[name]: validator.trim(value)}, () => this.validateField(name, value));
+    this.setState({[name]: validator.trim(value)});
   } 
 
-  // Validate each input field
+  // Handle user submitting form
+  handleSubmit = () => {
+    // Validate form fields
+    for (var key in this.state) {
+      this.validateField(key, this.state[key]);
+    }
+
+    // Validate password (reference the field rather than storing this in state)
+    this.validateField('password', this.password.value);
+
+    // Can we submit? 
+    if (this.isFormValid()) {
+      
+      // Register user @TODO 
+      // (Ref: https://reactjs.org/docs/faq-ajax.html)
+      // 1. Check if user exists
+      // 2. Return success
+      fetch('http://localhost:3003/register', {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+          method: 'POST',
+          body: JSON.stringify(
+              {
+                'fname': this.state.fname,
+                'lname': this.state.lname,
+                'email': this.state.email,
+                'phone': this.state.phone || null,
+                'password': this.password.value
+              }
+            )
+        })
+        .then(res => res.json())
+        .then(
+          (result) => {
+            console.log('result: ' + result);
+          },
+          (error) => {
+            console.log('error: ' + error);
+
+            // Redirect on success @TODO
+            this.props.history.push('/trips');
+
+            // Display error message on error @TODO
+          }
+        )
+
+    }
+
+  }
+
+  // Validate given form field
   validateField = (name, value) => {
     let isValid = this.state.isValid;
     let errorMessages = this.state.errorMessages;
@@ -143,8 +194,6 @@ class Registration extends Component {
       'errorMessages': errorMessages
       });
 
-    this.isFormValid();
-
   }
 
   // Add 'has-error' class to invalid form fields
@@ -152,21 +201,19 @@ class Registration extends Component {
     return error.length > 0 ? 'has-error' : '';
   }
 
-  // Check if all input fields are valid. Disable submit accordingly
+  // Check if all form fields are valid
   isFormValid = () => {
-    var valid = this.state.isValid.fname && this.state.isValid.lname && this.state.isValid.email && this.state.isValid.phone && this.state.isValid.password;
-    this.setState({'formValid': valid});
+    return this.state.isValid.fname && this.state.isValid.lname
+      && this.state.isValid.email && this.state.isValid.phone && this.state.isValid.password;
   }
 
   // Render component
   render() {
     return (
       <Row>
-
         <Col md={{ span: 12 }}>
           <Row className='filler-400'/>
         </Col>
-
         <Col md={{ span: 3, offset: 3 }} className='top-pad-20'>
           <Row className='info-container'>
             <Col md={{ span: 12 }} className='info'>
@@ -179,7 +226,6 @@ class Registration extends Component {
             </Col>
           </Row>
         </Col>
-
         <Col md={{ span: 6 }} className='top-pad-20'>
             <Row className='registration-text' id='registration-heading'>
               <Col md={{ span: 12 }}>
@@ -192,10 +238,16 @@ class Registration extends Component {
               </Col>
             </Row>
             <div className='form-group'>
-
               <Row>
                 <Col md={{ span: 4 }}>
-                  <input type='name' className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.fname)}`} id='name-reg-input' placeholder='first name' name='fname' onChange={this.onChange} value={this.state.fname}/>
+                  <input type='name' 
+                    className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.fname)}`}
+                    id='name-reg-input'
+                    placeholder='first name'
+                    name='fname'
+                    onChange={this.onChange}
+                    value={this.state.fname}
+                  />
                 </Col>
                 {this.state.errorMessages.fname.length > 0 &&
                   <Col md={{ span: 6 }} className='error-message'>
@@ -204,10 +256,16 @@ class Registration extends Component {
                   </Col>
                 }
               </Row>
-
               <Row>
                 <Col md={{ span: 4 }}>
-                  <input type='name' className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.lname)}`} id='name-reg-input' placeholder='last name' name='lname' onChange={this.onChange} value={this.state.lname}/>
+                  <input type='name'
+                    className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.lname)}`}
+                    id='name-reg-input'
+                    placeholder='last name'
+                    name='lname'
+                    onChange={this.onChange}
+                    value={this.state.lname}
+                  />
                 </Col>
                 {this.state.errorMessages.lname.length > 0 &&
                   <Col md={{ span: 6 }} className='error-message'>
@@ -216,10 +274,16 @@ class Registration extends Component {
                   </Col>
                 }
               </Row>
-
               <Row>
                 <Col md={{ span: 4 }}>
-                  <input type='email' className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.email)}`} id='email-reg-input' placeholder='email' name='email' onChange={this.onChange} value={this.state.email}/>
+                  <input type='email'
+                    className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.email)}`}
+                    id='email-reg-input'
+                    placeholder='email'
+                    name='email'
+                    onChange={this.onChange}
+                    value={this.state.email}
+                  />
                 </Col>
                 {this.state.errorMessages.email.length > 0 &&
                   <Col md={{ span: 6 }} className='error-message'>
@@ -228,10 +292,16 @@ class Registration extends Component {
                   </Col>
                 }
               </Row>
-
               <Row>
                 <Col md={{ span: 4 }}>
-                  <input type='phone' className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.phone)}`} id='phone-reg-input' placeholder='phone number (optional)' name='phone' onChange={this.onChange} value={this.state.phone}/>
+                  <input type='phone'
+                    className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.phone)}`}
+                    id='phone-reg-input'
+                    placeholder='phone number (optional)'
+                    name='phone'
+                    onChange={this.onChange}
+                    value={this.state.phone}
+                  />
                 </Col>
                 {this.state.errorMessages.phone.length > 0 &&
                   <Col md={{ span: 6 }} className='error-message'>
@@ -240,10 +310,15 @@ class Registration extends Component {
                   </Col>
                 }              
               </Row>
-            
               <Row>
                 <Col md={{ span: 4 }}>
-                  <input type='password' className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.password)}`} id='password-reg-input' placeholder='password' name='password' onChange={this.onChange}/>
+                  <input type='password'
+                    className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.password)}`}
+                    id='password-reg-input'
+                    placeholder='password'
+                    name='password'
+                    ref={node => this.password = node}
+                  />
                 </Col>
                 {this.state.errorMessages.password.length > 0 &&
                   <Col md={{ span: 6 }} className='error-message'>
@@ -252,22 +327,19 @@ class Registration extends Component {
                   </Col>
                 }
               </Row>
-
             </div>
             <Row>
               <Col md={{ span: 3 }}>
-                <Button className='fas fa-arrow-right sml-purple-icon-button fa-2x' disabled={!this.state.formValid}/>
+                <Button className='fas fa-arrow-right sml-purple-icon-button fa-2x' onClick={this.handleSubmit}/>
               </Col>
             </Row>
         </Col>
-
         <Col md={{ span: 12 }}>
           <Row className='filler-100'/>
         </Col>
-
       </Row>
     );
   }
 }
 
-export default Registration;
+export default withRouter(Registration)

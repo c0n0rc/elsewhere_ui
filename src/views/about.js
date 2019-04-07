@@ -5,18 +5,18 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 
-class Profile extends Component {
+class About extends Component {
 
   // Render component
   render() {
     return (
       <Row>
         <Col md={{ span: 8, offset: 2 }}>
-          PROFILE
+          ABOUT
         </Col>
       </Row>
     );
   }
 }
 
-export default Profile;
+export default About;

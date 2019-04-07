@@ -29,7 +29,7 @@ class Header extends Component {
   }
 
   // Mount scroll events
-  // Ref: https://gist.github.com/koistya/934a4e452b61017ad611
+  // (Ref: https://gist.github.com/koistya/934a4e452b61017ad611)
   componentDidMount = () => {
     window.addEventListener('scroll', this.handleOnScroll)
   }
@@ -54,8 +54,6 @@ class Header extends Component {
 
   // Render component
   render() {
-
-    // Set HTML
     return (
       <Row className={`header-row fixed-top ${this.changeHeaderColor()}`}>
         <Col md={{ span: 4 }}>
@@ -67,9 +65,11 @@ class Header extends Component {
           <Link to='/'>
             <button type='button' className='btn btn-outline-secondary sml-purple-no-border-btn'>Home</button>
           </Link>
+          <span className='margin-20'/>
           <Link to='/plan'>
             <button type='button' className='btn btn-outline-secondary sml-purple-no-border-btn'>Plan Your Trip</button>
           </Link>
+          <span className='margin-20'/>
           <Link to='/login'>
             <button type='button' className='btn btn-outline-secondary sml-purple-border-btn'>Login</button>
           </Link>

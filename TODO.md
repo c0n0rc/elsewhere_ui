@@ -1,13 +1,11 @@
-- Fix button width
-- Revert to normal button color after click
+- Create user - after login, no longer show register. show my trips
 - Add 'my trips'
-- Preferences page
-- Itinerary page
-
-- Logger 
+- Confirmation window when leacing page 
+- Account page
 - Set up express router
-- Have front end talk to express
 - Set up sqlite db with user table
 - Authorization for pages - https://alligator.io/react/simple-authorization/
 - Cookies for pages
-- Unit testing
+
+- User can see "home", my trips", "account"
+- Visit can see "home", "login", "register", "about us" (todo)
