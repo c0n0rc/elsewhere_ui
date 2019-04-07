@@ -4,18 +4,19 @@ import React, { Component } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-class Signup extends Component {
+
+class Profile extends Component {
 
   // Render component
   render() {
     return (
       <Row>
         <Col md={{ span: 8, offset: 2 }}>
-          SIGNUP
+          PROFILE
         </Col>
       </Row>
     );
   }
 }
 
-export default Signup;
+export default Profile;

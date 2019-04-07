@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import Landing from './landing.js'
 import Registration from './registration.js'
 
-class Main extends Component {
+
+class Home extends Component {
 
   // Render component
   render() {
@@ -17,4 +18,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default Home;

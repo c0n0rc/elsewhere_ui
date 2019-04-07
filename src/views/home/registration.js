@@ -7,7 +7,8 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 
 // Styles
-import '../styles/registration.css';
+import '../../styles/registration.css';
+
 
 class Registration extends Component {
 

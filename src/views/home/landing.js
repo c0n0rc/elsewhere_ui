@@ -5,10 +5,10 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 // Images
-import Background from '../images/treetop_sky_bkground.jpeg';
+import Background from '../../images/treetop_sky_bkground.jpeg';
 
 // Styles
-import '../styles/landing.css';
+import '../../styles/landing.css';
 
 // Set style
 const backgroundStyle = {
@@ -16,6 +16,7 @@ const backgroundStyle = {
   backgroundImage: 'url(' + Background + ')',
   backgroundSize: 'cover', 
 };
+
 
 class Landing extends Component {
 

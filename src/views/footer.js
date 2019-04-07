@@ -7,6 +7,7 @@ import Row from 'react-bootstrap/Row';
 // Styles
 import '../styles/footer.css';
 
+
 class Footer extends Component {
 
   // Render component

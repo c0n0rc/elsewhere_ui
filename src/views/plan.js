@@ -4,21 +4,19 @@ import React, { Component } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-class Account extends Component {
 
-  // Set state 
-  state = {}
+class Plan extends Component {
 
   // Render component
   render() {
     return (
       <Row>
         <Col md={{ span: 8, offset: 2 }}>
-          ACCOUNT
+          PLAN
         </Col>
       </Row>
     );
   }
 }
 
-export default Account;
+export default Plan;

@@ -16,6 +16,7 @@ const logoStyle = {
   cursor: 'pointer'
 };
 
+
 class Header extends Component {
 
   // Initialize constructor and set state
@@ -62,11 +63,16 @@ class Header extends Component {
             <img src={logo} alt='Elsewhere Travels' style={logoStyle}/>
           </Link>
         </Col>
-        <Col md={{ span: 6, offset: 2 }}>
-          <button type="button" className="btn btn-outline-secondary sml-purple-no-border-btn">Home</button>
-          <button type="button" className="btn btn-outline-secondary sml-purple-no-border-btn">How We Work</button>
-          <button type="button" className="btn btn-outline-secondary sml-purple-no-border-btn">Plan Your Trip</button>
-          <button type="button" className="btn btn-outline-secondary sml-purple-border-btn">Sign In</button>
+        <Col md={{ span: 5, offset: 3 }}>
+          <Link to='/'>
+            <button type='button' className='btn btn-outline-secondary sml-purple-no-border-btn'>Home</button>
+          </Link>
+          <Link to='/plan'>
+            <button type='button' className='btn btn-outline-secondary sml-purple-no-border-btn'>Plan Your Trip</button>
+          </Link>
+          <Link to='/login'>
+            <button type='button' className='btn btn-outline-secondary sml-purple-border-btn'>Login</button>
+          </Link>
         </Col>
       </Row>
     );

@@ -1,10 +1,13 @@
+- Fix button width
+- Revert to normal button color after click
+- Add 'my trips'
 - Preferences page
-- Login page
 - Itinerary page
+
 - Logger 
 - Set up express router
 - Have front end talk to express
 - Set up sqlite db with user table
-- Authorization for pages
+- Authorization for pages - https://alligator.io/react/simple-authorization/
 - Cookies for pages
 - Unit testing

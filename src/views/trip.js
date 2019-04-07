@@ -4,18 +4,19 @@ import React, { Component } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-class Preferences extends Component {
+
+class Trip extends Component {
 
   // Render component
   render() {
     return (
       <Row>
         <Col md={{ span: 8, offset: 2 }}>
-          PREFERENCES
+          TRIP
         </Col>
       </Row>
     );
   }
 }
 
-export default Preferences;
+export default Trip;
