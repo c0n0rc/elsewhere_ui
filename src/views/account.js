@@ -7,14 +7,7 @@ import Row from 'react-bootstrap/Row';
 class Account extends Component {
 
   // Set state 
-  state = {
-    temp: 'temp'
-  }
-
-  // Temp
-  tempMethod = () => {
-    console.log('just sayin!');
-  }
+  state = {}
 
   // Render component
   render() {

@@ -9,15 +9,17 @@ import '../styles/footer.css';
 
 class Footer extends Component {
 
-  // Set state 
-  state = {}
-
   // Render component
   render() {
     return (
       <Row className='footer-row'>
         <Col md={{ span: 4, offset: 4 }} className='footer-icons'>
-          <i className="fab fa-instagram fa-2x"></i>
+          <a href='https://www.instagram.com/elsewhere.travels/?hl=en' target='blank' rel='noopener'>
+            <i className='fab fa-instagram fa-2x margin-20 med-purple-icon'></i>
+          </a> 
+          <a href='mailto:elsewheretravelsco@gmail.com?subject=Planning with Elsewhere Travels' target='blank' rel='noopener'>
+            <i className='far fa-paper-plane fa-2x margin-20 med-purple-icon'></i>
+          </a>
         </Col>
       </Row>
     );

@@ -17,7 +17,7 @@ class App extends Component {
   // Set state
   state = {}
 
-  // Render component
+  // Render components and set routes
   render() {
     return (
       <BrowserRouter>
@@ -36,7 +36,7 @@ class App extends Component {
             <Login />
           )}/>
 
-          {/* Sign up w/ preferences */}
+          {/* Register */}
           <Route exact={true} path='/signup' render={() => (
             <div>
               <Preferences />

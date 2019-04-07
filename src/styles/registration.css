@@ -1,0 +1,21 @@
+.info {
+  padding: 40px;
+  background: #6666FD;
+  color: #fff;
+  height: 450px;
+  font-size: 25px;
+  font-weight: bold;
+  overflow: scroll;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.registration-text {
+  padding-left: 10px;
+  color: #6666FD;
+  font-size: 25px;
+}
+
+#registration-heading {
+  font-weight: bold;
+}

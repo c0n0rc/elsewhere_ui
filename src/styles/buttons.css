@@ -1,0 +1,93 @@
+#root .sml-purple-icon-button {
+  color: #6666FD;
+  background-color: transparent;
+  border: none;
+}
+
+#root .sml-purple-icon-button:hover,
+#root .sml-purple-icon-button:focus, #root .sml-purple-icon-button:active:focus, #root .sml-purple-icon-button.active:focus,
+#root .sml-purple-icon-button.focus, #root .sml-purple-icon-button:active.focus, #root .sml-purple-icon-button.active.focus {
+  color: #5656D8;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+/* ---------------- */
+
+#root .sml-purple-no-border-btn {
+  margin: 10px 15px;
+  padding: 2px 20px;
+  color: #6666FD;
+  border: none;
+  min-width: 100px;
+}
+
+#root .sml-purple-no-border-btn:hover,
+#root .sml-purple-no-border-btn:focus, #root .sml-purple-no-border-btn:active:focus, #root .sml-purple-no-border-btn.active:focus,
+#root .sml-purple-no-border-btn.focus, #root .sml-purple-no-border-btn:active.focus, #root .sml-purple-no-border-btn.active.focus {
+  color: #5656D8;
+  border-color: #5656D8;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+/* ---------------- */
+
+#root .sml-purple-border-btn {
+  margin: 10px 15px;
+  padding: 2px 20px;
+  color: #6666FD;
+  border-color: #6666FD;
+  min-width: 100px;
+}
+
+#root .sml-purple-border-btn:hover,
+#root .sml-purple-border-btn:focus, #root .sml-purple-border-btn:active:focus, #root .sml-purple-border-btn.active:focus,
+#root .sml-purple-border-btn.focus, #root .sml-purple-border-btn:active.focus, #root .sml-purple-border-btn.active.focus {
+  color: #5656D8;
+  border-color: #5656D8;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+/* ---------------- */
+
+#root .med-purple-border-btn {
+  margin: 20px 0;
+  padding: 10px 20px;
+  color: #6666FD;
+  border-color: #6666FD;
+  min-width: 100px;
+}
+
+#root .med-purple-border-btn:hover,
+#root .med-purple-border-btn:focus, #root .med-purple-border-btn:active:focus, #root .med-purple-border-btn.active:focus,
+#root .med-purple-border-btn.focus, #root .med-purple-border-btn:active.focus, #root .med-purple-border-btn.active.focus {
+  color: #5656D8;
+  border-color: #5656D8;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+/* ---------------- */
+
+#root .med-purple-icon {
+  color: #6666FD;
+  background-color: transparent;
+  border: none;
+}
+
+#root .med-purple-icon:hover,
+#root .med-purple-icon:focus, #root .med-purple-icon:active:focus, #root .med-purple-icon.active:focus,
+#root .med-purple-icon.focus, #root .med-purple-icon:active.focus, #root .med-purple-icon.active.focus {
+  color: #5656D8;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+/* ---------------- */

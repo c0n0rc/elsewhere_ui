@@ -1,0 +1,36 @@
+@import "mixins.css"; 
+
+.landing {
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s;    /* Firefox < 16 */
+  -ms-animation: fadein 3s;     /* Internet Explorer */
+  -o-animation: fadein 3s;      /* Opera < 12.1 */
+  animation: fadein 3s;
+}
+
+.landing-background::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+  margin-top: -300px;
+  height: 300px;
+  width: 100%;
+  content: '';
+}
+
+.landing-header {
+  font-size: 5rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -3px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.landing-paragraph {
+  padding: 25px 0 0 0;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.5px;
+  font-weight: 500;
+  color: #FFFFFF;
+}

@@ -4,6 +4,10 @@ import ReactDOM from 'react-dom';
 // Views
 import App from './App';
 
+// Styles
+import './styles/common.css'
+import './styles/buttons.css'
+
 // Utils
 import * as serviceWorker from './utils/serviceWorker';
 

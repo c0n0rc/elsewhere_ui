@@ -6,9 +6,6 @@ import Row from 'react-bootstrap/Row';
 
 class Preferences extends Component {
 
-  // Set state 
-  state = {}
-
   // Render component
   render() {
     return (

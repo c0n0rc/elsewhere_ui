@@ -2,28 +2,17 @@
   padding: 20px 0 20px 20px;
 }
 
+.header-background-trans {
+  background-color: transparent;
+  transition-duration: 1s;
+}
+
+.header-background-color {
+  background-color: #fff;
+  transition-duration: 1s;
+  box-shadow: 0 0px 10px #bcbcbc;
+}
+
 img {
   width: 200px;
-}
-
-#root .header-btn {
-  margin: 10px 15px;
-  padding: 2px 20px;
-  color: #6666FD;
-  border-color: #6666FD;
-  min-width: 100px;
-}
-
-#root .header-btn-secondary {
-  border: none;
-}
-
-#root .header-btn:hover,
-#root .header-btn:focus, #root .header-btn:active:focus, #root .header-btn.active:focus,
-#root .header-btn.focus, #root .header-btn:active.focus, #root .header-btn.active.focus {
-  color: #5656D8;
-  border-color: #5656D8;
-  background-color: transparent;
-  outline: none;
-  box-shadow: none;
 }
