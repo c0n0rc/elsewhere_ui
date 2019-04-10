@@ -70,7 +70,7 @@ class Registration extends Component {
       // (Ref: https://reactjs.org/docs/faq-ajax.html)
       // 1. Check if user exists
       // 2. Return success
-      fetch('http://localhost:3003/register', {
+      fetch('http://localhost:3003/api/v1/users', {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -210,10 +210,7 @@ class Registration extends Component {
   // Render component
   render() {
     return (
-      <Row>
-        <Col md={{ span: 12 }}>
-          <Row className='filler-400'/>
-        </Col>
+      <Row className='registration'>      
         <Col md={{ span: 3, offset: 3 }} className='top-pad-20'>
           <Row className='info-container'>
             <Col md={{ span: 12 }} className='info'>
@@ -333,9 +330,6 @@ class Registration extends Component {
                 <Button className='fas fa-arrow-right sml-purple-icon-button fa-2x' onClick={this.handleSubmit}/>
               </Col>
             </Row>
-        </Col>
-        <Col md={{ span: 12 }}>
-          <Row className='filler-100'/>
         </Col>
       </Row>
     );

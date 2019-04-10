@@ -55,7 +55,7 @@ class Header extends Component {
   // Render component
   render() {
     return (
-      <Row className={`header-row fixed-top ${this.changeHeaderColor()}`}>
+      <Row className={`header fixed-top ${this.changeHeaderColor()}`}>
         <Col md={{ span: 4 }}>
           <Link to='/'>
             <img src={logo} alt='Elsewhere Travels' style={logoStyle}/>

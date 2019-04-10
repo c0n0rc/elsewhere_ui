@@ -13,7 +13,7 @@ class Footer extends Component {
   // Render component
   render() {
     return (
-      <Row className='footer-row'>
+      <Row className='footer'>
         <Col md={{ span: 4, offset: 4 }} className='footer-icons'>
           <a href='https://www.instagram.com/elsewhere.travels/?hl=en' target='blank' rel='noopener' className='link-icon margin-20'>
             <i className='fab fa-instagram fa-2x med-purple-icon'></i>

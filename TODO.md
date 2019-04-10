@@ -1,11 +1,17 @@
-- Create user - after login, no longer show register. show my trips
-- Add 'my trips'
-- Confirmation window when leacing page 
-- Account page
-- Set up express router
-- Set up sqlite db with user table
-- Authorization for pages - https://alligator.io/react/simple-authorization/
-- Cookies for pages
-
-- User can see "home", my trips", "account"
-- Visit can see "home", "login", "register", "about us" (todo)
+- (Specific @TODO's marked in code)
+- Add API tests
+- Add fetch calls to their own functions
+- Create user component
+- Add authorization
+  - User can see "Home", "My Trips", "Account"
+  - User cannot see "Register", "Get Started", "Login"
+  - Visitor can only see "Home", "Register", "Login", "Get Started"
+- Add "Account" page
+- Add "My Trips" page
+- Add "Itinerary" page
+- Add "About Us" page
+- Add confirmation window when leaving a page with unsaved changes
+- 404 Page / Unauthorized page 
+- Startup script
+- Build script
+- Console log to console error
