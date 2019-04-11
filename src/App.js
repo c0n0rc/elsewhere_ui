@@ -7,7 +7,6 @@ import Header from './views/header.js';
 import Home from './views/home/home.js';
 import Login from './views/login.js';
 import Account from './views/account.js';
-import About from './views/about.js';
 import Trip from './views/trip.js';
 import Footer from './views/footer.js';
 
@@ -19,6 +18,8 @@ class App extends Component {
 
   // Render components and set routes
   render() {
+    console.debug('[App.js] Rendering');
+
     return (
       <BrowserRouter>
         <ScrollToTop>
@@ -40,11 +41,6 @@ class App extends Component {
             {/* Account */}
             <Route exact={true} path='/account' render={() => (
               <Account />
-            )}/>
-
-            {/* About */}
-            <Route exact={true} path='/about' render={() => (
-              <About />
             )}/>
 
             {/* Trip */}

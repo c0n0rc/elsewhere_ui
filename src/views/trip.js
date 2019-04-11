@@ -15,6 +15,8 @@ class Trip extends Component {
 
   // Initialize constructor and set state
   constructor (props) {
+    console.debug('[trip.js] Constructing');
+
     super(props);
     
     this.state = {
@@ -25,6 +27,8 @@ class Trip extends Component {
 
   // Fetch initial trip info on mount
   componentDidMount() {
+    console.debug('[trip.js] Component did mount');
+
     // Fetch initial trip info (past, current, future trips) @TODO 
     fetch('http://localhost:3003/api/v1/trips', {
       headers: {
@@ -53,12 +57,10 @@ class Trip extends Component {
 
   // Render component
   render() {
+    console.debug('[trip.js] Rendering');
+
     return (
-      <Row>
-        <Col md={{ span: 12 }}>
-          <Row className='filler-400'/>
-        </Col>
-      </Row>
+        <Row className='filler-400'/>
     );
   }
 }

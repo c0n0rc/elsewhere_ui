@@ -10,6 +10,8 @@ class Home extends Component {
 
   // Render component
   render() {
+    console.debug('[home.js] Rendering');
+
     return (
       <div className='home'>
         <Landing/>

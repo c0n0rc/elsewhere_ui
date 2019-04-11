@@ -15,6 +15,8 @@ class Registration extends Component {
 
   // Initialize constructor and set state
   constructor (props) {
+    console.debug('[registration.js] Constructing');
+
     super(props);
     
     this.state = {
@@ -65,39 +67,39 @@ class Registration extends Component {
 
     // Can we submit? 
     if (this.isFormValid()) {
-      
-      // Register user @TODO 
+
+      // Register a new user
       // (Ref: https://reactjs.org/docs/faq-ajax.html)
-      // 1. Check if user exists
-      // 2. Return success
       fetch('http://localhost:3003/api/v1/users', {
+        json: true,
+        method: 'POST',
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'content-type': 'application/json'
         },
-          method: 'POST',
-          body: JSON.stringify(
-              {
-                'fname': this.state.fname,
-                'lname': this.state.lname,
-                'email': this.state.email,
-                'phone': this.state.phone || null,
-                'password': this.password.value
-              }
-            )
+        body: JSON.stringify(
+            {
+              'email': this.state.email,
+              'fname': this.state.fname,
+              'lname': this.state.lname,
+              'phone': this.state.phone || null,
+              'password': this.password.value
+            }
+          )
         })
         .then(res => res.json())
         .then(
           (result) => {
-            console.log('result: ' + result);
+            if (result.error) {
+              console.error('[registration.js] POST http://localhost:3003/api/v1/users error: ' + JSON.stringify(result.error));
+            } else {
+              console.log('[registration.js] POST http://localhost:3003/api/v1/users success');
+
+              // Redirect to '/trips' on success
+              this.props.history.push('/trips');
+            }
           },
           (error) => {
-            console.log('error: ' + error);
-
-            // Redirect on success @TODO
-            this.props.history.push('/trips');
-
-            // Display error message on error @TODO
+            console.error('[registration.js] POST http://localhost:3003/api/v1/users error: ' + JSON.stringify(error));
           }
         )
 
@@ -111,7 +113,7 @@ class Registration extends Component {
     let errorMessages = this.state.errorMessages;
 
     switch(name) {
-      
+
       case 'fname':
         // First name cannot be empty
         if (value.length === 0) {
@@ -126,7 +128,7 @@ class Registration extends Component {
           errorMessages.fname = '';
         }
         break;
-      
+
       case 'lname':
         // Last name cannot be empty
         if (value.length === 0) {
@@ -155,7 +157,7 @@ class Registration extends Component {
           errorMessages.email = '';
         }
         break;
-      
+
       case 'phone':
         // Phone number can be empty
         if (value.length === 0) {
@@ -169,7 +171,7 @@ class Registration extends Component {
           errorMessages.phone = '';
         }
         break;
-      
+
       case 'password':
         // Password cannot be empty
         if (value.length === 0) {
@@ -184,7 +186,7 @@ class Registration extends Component {
           errorMessages.password = '';
         }
         break;
-      
+
       default:
         break;
     }
@@ -209,6 +211,8 @@ class Registration extends Component {
 
   // Render component
   render() {
+    console.debug('[registration.js] Rendering');
+
     return (
       <Row className='registration'>      
         <Col md={{ span: 3, offset: 3 }} className='top-pad-20'>
@@ -234,12 +238,12 @@ class Registration extends Component {
                 to start your journey.
               </Col>
             </Row>
-            <div className='form-group'>
+            <form className='form-group'>
               <Row>
                 <Col md={{ span: 4 }}>
                   <input type='name' 
                     className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.fname)}`}
-                    id='name-reg-input'
+                    id='fname-reg-input'
                     placeholder='first name'
                     name='fname'
                     onChange={this.onChange}
@@ -257,7 +261,7 @@ class Registration extends Component {
                 <Col md={{ span: 4 }}>
                   <input type='name'
                     className={`form-control purple-input-field ${this.hasError(this.state.errorMessages.lname)}`}
-                    id='name-reg-input'
+                    id='lname-reg-input'
                     placeholder='last name'
                     name='lname'
                     onChange={this.onChange}
@@ -280,6 +284,7 @@ class Registration extends Component {
                     name='email'
                     onChange={this.onChange}
                     value={this.state.email}
+                    autoComplete='email'
                   />
                 </Col>
                 {this.state.errorMessages.email.length > 0 &&
@@ -315,6 +320,7 @@ class Registration extends Component {
                     placeholder='password'
                     name='password'
                     ref={node => this.password = node}
+                    autoComplete='new-password'
                   />
                 </Col>
                 {this.state.errorMessages.password.length > 0 &&
@@ -324,7 +330,7 @@ class Registration extends Component {
                   </Col>
                 }
               </Row>
-            </div>
+            </form>
             <Row>
               <Col md={{ span: 3 }}>
                 <Button className='fas fa-arrow-right sml-purple-icon-button fa-2x' onClick={this.handleSubmit}/>

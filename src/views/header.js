@@ -21,6 +21,8 @@ class Header extends Component {
 
   // Initialize constructor and set state
   constructor (props) {
+    console.debug('[header.js] Constructing');
+
     super(props);
     
     this.state = {
@@ -54,6 +56,8 @@ class Header extends Component {
 
   // Render component
   render() {
+    console.debug('[header.js] Rendering');
+
     return (
       <Row className={`header fixed-top ${this.changeHeaderColor()}`}>
         <Col md={{ span: 4 }}>

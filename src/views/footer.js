@@ -12,6 +12,8 @@ class Footer extends Component {
 
   // Render component
   render() {
+    console.debug('[footer.js] Rendering');
+
     return (
       <Row className='footer'>
         <Col md={{ span: 4, offset: 4 }} className='footer-icons'>

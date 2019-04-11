@@ -25,6 +25,8 @@ class Login extends Component {
 
   // Initialize constructor and set state
   constructor (props) {
+    console.debug('[login.js] Constructing');
+
     super(props);
     
     this.state = {
@@ -47,7 +49,6 @@ class Login extends Component {
   }
 
   // Set states
-  // (Ref: https://learnetto.com/blog/how-to-do-simple-form-validation-in-reactjs)
   handleUserInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -67,34 +68,34 @@ class Login extends Component {
     // Can we submit? 
     if (this.isFormValid()) {
 
-      // Validate user credentials @TODO
-      // (Ref: https://reactjs.org/docs/faq-ajax.html)
-      // 1. Check if user exists and password matches (Your username or password doesn't match what we have on file.)
-      fetch('http://localhost:3003/user', {
+      // Validate user credentials
+      fetch('http://localhost:3003/api/v1/users/authenticate', {
+        json: true,
+        method: 'POST',
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'content-type': 'application/json'
         },
-          method: 'POST',
-          body: JSON.stringify(
-              {
-                'email': this.state.email,
-                'password': this.password.value
-              }
-            )
+        body: JSON.stringify(
+            {
+              'email': this.state.email,
+              'password': this.password.value
+            }
+          )
         })
         .then(res => res.json())
         .then(
           (result) => {
-            console.log('result: ' + result);
+            if (result.error) {
+              console.error('[login.js] POST http://localhost:3003/api/v1/users/authenticate error: ' + JSON.stringify(result.error));
+            } else {
+              console.log('[login.js] POST http://localhost:3003/api/v1/users/authenticate success');
+
+              // Redirect to '/trips' on success
+              this.props.history.push('/trips');
+            }
           },
           (error) => {
-            console.log('error: ' + error);
-
-            // Redirect on success @TODO
-            this.props.history.push('/trips');
-
-            // Display error message on error @TODO
+            console.error('[login.js] POST http://localhost:3003/api/v1/users/authenticate error: ' + JSON.stringify(error));
           }
         )
 
@@ -158,6 +159,8 @@ class Login extends Component {
 
   // Render component
   render() {
+    console.debug('[login.js] Rendering');
+
     return (
       <Row>
         <Col md={{ span: 12 }} style={backgroundStyle}>
@@ -169,7 +172,7 @@ class Login extends Component {
                   Welcome back.
                 </Col>
               </Row>
-              <div className='form-group'>
+              <form className='form-group'>
                 <Row>
                   <Col md={{ span: 12 }}>
                     <input type='email'
@@ -179,6 +182,7 @@ class Login extends Component {
                       name='email'
                       onChange={this.onChange}
                       value={this.state.email}
+                      autoComplete='email'
                     />
                   </Col>
                 </Row>
@@ -198,6 +202,7 @@ class Login extends Component {
                       placeholder='password'
                       name='password'
                       ref={node => this.password = node}
+                      autoComplete='current-password'
                     />
                   </Col>
                 </Row>
@@ -209,7 +214,7 @@ class Login extends Component {
                     </Col>
                   </Row>
                 }
-              </div>
+              </form>
               <Row>
                 <Col md={{ span: 3 }}>
                   <Button className='fas fa-arrow-right sml-purple-icon-button fa-2x' onClick={this.handleSubmit}/>

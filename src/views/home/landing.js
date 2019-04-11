@@ -31,6 +31,8 @@ class Landing extends Component {
 
   // Render component
   render() {
+    console.debug('[landing.js] Rendering');
+
     return (
       <Row className='landing-background'>
         <Col md={{ span: 12 }} style={backgroundStyle}>

@@ -9,7 +9,6 @@
 - Add "Account" page
 - Add "My Trips" page
 - Add "Itinerary" page
-- Add "About Us" page
 - Add confirmation window when leaving a page with unsaved changes
 - 404 Page / Unauthorized page 
 - Startup script
