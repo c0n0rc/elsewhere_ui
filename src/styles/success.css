@@ -1,0 +1,26 @@
+@import "mixins.css"; 
+
+.success-container {
+  height: 300px;
+  min-height: 300px;
+  with: 150px;
+  min-width: 150px;
+  -webkit-animation: fadein 1.5s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1.5s;    /* Firefox < 16 */
+  -ms-animation: fadein 1.5s;     /* Internet Explorer */
+  -o-animation: fadein 1.5s;      /* Opera < 12.1 */
+  animation: fadein 1.5s;
+}
+
+.success-header {
+  font-size: 60px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+  color: #6666FD;
+}
+
+.success-message {
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  color: #6666FD;
+}

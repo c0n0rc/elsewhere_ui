@@ -136,7 +136,7 @@ class Trip extends Component {
                       <div className='details white'>06/20/2019</div>
                       <div className='details-bold white' style={ { paddingTop: '5px'}}>Itinerary Status:</div>
                       <div className='details white'>In Progress</div>
-                      <button type='button' className='btn btn-outline-secondary sml-white-btn'>View Trip</button>
+                      <button type='button' className='btn btn-outline-secondary sml-white-btn' onClick={this.handleViewTripClick}>View Trip</button>
                     </Col>
                     <Col md={{ span: 7 }} className='event-background' style={eventOneBackgroundStyle}/>
                   </Row>
@@ -153,7 +153,7 @@ class Trip extends Component {
                       <div className='details purple'>05/09/2018</div>
                       <div className='details-bold purple' style={ { paddingTop: '5px'}}>Itinerary Status:</div>
                       <div className='details purple'>Completed</div>
-                      <button type='button' className='btn btn-outline-secondary sml-purple-border-btn' style={ { marginLeft: '0px' } }>View Trip</button>
+                      <button type='button' className='btn btn-outline-secondary sml-purple-border-btn' onClick={this.handleViewTripClick} style={ { marginLeft: '0px' } }>View Trip</button>
                     </Col>
                   </Row>
                 </Col>
@@ -169,7 +169,7 @@ class Trip extends Component {
                       <div className='details purple'>04/11/2018</div>
                       <div className='details-bold purple' style={ { paddingTop: '5px'}}>Itinerary Status:</div>
                       <div className='details purple'>Completed</div>
-                      <button type='button' className='btn btn-outline-secondary sml-purple-border-btn' style={ { marginLeft: '0px' } }>View Trip</button>
+                      <button type='button' className='btn btn-outline-secondary sml-purple-border-btn' onClick={this.handleViewTripClick} style={ { marginLeft: '0px' } }>View Trip</button>
                     </Col>
                   </Row>
                 </Col>

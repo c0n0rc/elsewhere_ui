@@ -6,8 +6,8 @@
   - User cannot see "Register", "Get Started", "Login"
   - Visitor can only see "Home", "Register", "Login", "Get Started"
 - Add "Account" page
-- Add "My Trips" page
-- Add "Itinerary" page
+- Real "My Trips" page
+- Real "Itinerary" page
 - Add confirmation window when leaving a page with unsaved changes
 - 404 Page / Unauthorized page 
 - Startup script

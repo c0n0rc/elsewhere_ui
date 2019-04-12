@@ -57,6 +57,13 @@
 
 /* ---------------- */
 
+.purple-input-label {
+  color: #6666FD;
+  margin-left: 10px;
+}
+
+/* ---------------- */
+
 #root .has-error,
 #root .has-error:focus,
 #root .has-error.focus {

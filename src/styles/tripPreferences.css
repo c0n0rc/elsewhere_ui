@@ -1,0 +1,23 @@
+.heading {
+  font-size: 40px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+  color: #6666FD;
+}
+
+.subheading {
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  color: #6666FD;
+}
+
+#root .selected-btn {
+  background-color: #6666FD !important;
+  color: #fff !important;
+}
+
+#root .unselected-btn {
+  background-color: #fff !important;
+  color: #6666FD !important;
+}

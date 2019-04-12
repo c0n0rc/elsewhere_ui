@@ -7,6 +7,8 @@ import Header from './views/header.js';
 import Home from './views/home/home.js';
 import Login from './views/login.js';
 import Trip from './views/trip/trip.js';
+import Success from './views/success.js';
+import TripPreferences from './views/tripPreferences.js';
 import Footer from './views/footer.js';
 
 
@@ -40,6 +42,16 @@ class App extends Component {
             {/* My Trips */}
             <Route exact={true} path='/trips' render={() => (
               <Trip />
+            )}/>
+
+            {/* New Trip */}
+            <Route exact={true} path='/new_trip' render={() => (
+              <TripPreferences />
+            )}/>
+
+            {/* Trip Created */}
+            <Route exact={true} path='/success' render={() => (
+              <Success />
             )}/>
 
             {/* Footer */}
