@@ -18,6 +18,29 @@
 
 /* ---------------- */
 
+#root .sml-white-btn,
+#root .sml-white-btn:focus, #root .sml-white-btn:active:focus, #root .sml-white-btn.active:focus,
+#root .sml-white-btn.focus, #root .sml-white-btn:active.focus, #root .sml-white-btn.active.focus {
+  margin-top: 10px;
+  padding: 2px 20px;
+  background-color: #fff;
+  color: #6666FD;
+  border-color: #6666FD;
+  min-width: 100px;
+  outline: none;
+  box-shadow: none;
+}
+
+#root .sml-white-btn:hover {
+  color: #5656D8;
+  border-color: #5656D8;
+  background-color: #eef;
+  outline: none;
+  box-shadow: none;
+}
+
+/* ---------------- */
+
 #root .sml-purple-no-border-btn,
 #root .sml-purple-no-border-btn:focus, #root .sml-purple-no-border-btn:active:focus, #root .sml-purple-no-border-btn.active:focus,
 #root .sml-purple-no-border-btn.focus, #root .sml-purple-no-border-btn:active.focus, #root .sml-purple-no-border-btn.active.focus {

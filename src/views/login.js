@@ -86,7 +86,7 @@ class Login extends Component {
         .then(
           (result) => {
             if (result.error) {
-              console.error('[login.js] POST http://localhost:3003/api/v1/users/authenticate error: ' + JSON.stringify(result.error));
+              console.error('[login.js] POST http://localhost:3003/api/v1/users/authenticate error: ' + result.status + ' ' + JSON.stringify(result.error));
             } else {
               console.log('[login.js] POST http://localhost:3003/api/v1/users/authenticate success');
 
@@ -95,7 +95,7 @@ class Login extends Component {
             }
           },
           (error) => {
-            console.error('[login.js] POST http://localhost:3003/api/v1/users/authenticate error: ' + JSON.stringify(error));
+            console.error('[login.js] POST http://localhost:3003/api/v1/users/authenticate error: ' + error);
           }
         )
 

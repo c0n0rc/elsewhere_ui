@@ -1,6 +1,5 @@
 - (Specific @TODO's marked in code)
 - Add API tests
-- Add fetch calls to their own functions
 - Create user component
 - Add authorization
   - User can see "Home", "My Trips", "Account"
@@ -13,4 +12,5 @@
 - 404 Page / Unauthorized page 
 - Startup script
 - Build script
-- Console log to console error
+- Add error if user is not found 
+- Common fonts

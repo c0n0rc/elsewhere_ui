@@ -70,8 +70,8 @@ class Header extends Component {
             <button type='button' className='btn btn-outline-secondary sml-purple-no-border-btn'>Home</button>
           </Link>
           <span className='margin-20'/>
-          <Link to='/plan'>
-            <button type='button' className='btn btn-outline-secondary sml-purple-no-border-btn'>Plan Your Trip</button>
+          <Link to='/trips'>
+            <button type='button' className='btn btn-outline-secondary sml-purple-no-border-btn'>My Trips</button>
           </Link>
           <span className='margin-20'/>
           <Link to='/login'>

@@ -90,7 +90,7 @@ class Registration extends Component {
         .then(
           (result) => {
             if (result.error) {
-              console.error('[registration.js] POST http://localhost:3003/api/v1/users error: ' + JSON.stringify(result.error));
+              console.error('[registration.js] POST http://localhost:3003/api/v1/users error: ' + result.status + ' ' + JSON.stringify(result.error));
             } else {
               console.log('[registration.js] POST http://localhost:3003/api/v1/users success');
 
@@ -99,7 +99,7 @@ class Registration extends Component {
             }
           },
           (error) => {
-            console.error('[registration.js] POST http://localhost:3003/api/v1/users error: ' + JSON.stringify(error));
+            console.error('[registration.js] POST http://localhost:3003/api/v1/users error: ' + error);
           }
         )
 

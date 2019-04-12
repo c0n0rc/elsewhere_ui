@@ -1,0 +1,73 @@
+.trip-heading {
+  font-size: 50px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+  color: #6666FD;
+}
+
+.trip-subheading {
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  color: #6666FD;
+}
+
+.trips-container {
+  padding-top: 20px;
+  white-space: nowrap;
+  overflow-y: scroll;
+}
+
+.trips-container-row {
+  display: block !important;
+}
+
+.event {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 8px;
+  border-color: #6666FD;
+  min-width: 575px;
+  margin-right: 25px;
+  display: inline-block;
+  float: none;
+}
+
+.event-info {
+  height: 350px;
+  background: #6666FD;
+  border-radius: 8px 0 0 8px;
+  padding: 40px 0 0 20px;
+}
+
+.event-past-info {
+  height: 350px;
+  background: #fff;
+  border-radius: 8px 0 0 8px;
+  padding: 40px 0 0 20px;
+}
+
+.details {
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.details-bold {
+  font-size: 15px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+}
+
+.destination-bold {
+  font-size: 25px;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 800;
+}
+
+.purple {
+  color: #6666FD;
+}
+
+.white {
+  color: #fff;
+}
