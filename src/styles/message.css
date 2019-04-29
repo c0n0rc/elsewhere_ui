@@ -1,6 +1,6 @@
 @import "mixins.css"; 
 
-.success-container {
+.message-container {
   height: 300px;
   min-height: 300px;
   with: 150px;
@@ -12,14 +12,14 @@
   animation: fadein 1.5s;
 }
 
-.success-header {
+.message-header {
   font-size: 60px;
   font-family: 'Barlow', sans-serif;
   font-weight: 800;
   color: #6666FD;
 }
 
-.success-message {
+.message-body {
   font-size: 25px;
   font-family: 'Montserrat', sans-serif;
   color: #6666FD;
