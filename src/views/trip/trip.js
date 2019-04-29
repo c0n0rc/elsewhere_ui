@@ -105,6 +105,7 @@ class Trip extends Component {
     return (
       <Row className='trips'>
         <Col md={{ span: 12 }}>
+          <Row className='filler-50'/>
           <Row className='filler-100'/>
           <Row>
             <Col md={{ span: 10, offset: 1 }} className='trip-heading'>

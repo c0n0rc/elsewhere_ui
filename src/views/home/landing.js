@@ -10,6 +10,9 @@ import Background from '../../images/treetop_sky_bkground.jpeg';
 // Styles
 import '../../styles/landing.css';
 
+// Authorization 
+import { hasRole } from '../../utils/auth.js';
+
 // Set style
 const backgroundStyle = {
   width: '100%',
@@ -43,9 +46,11 @@ class Landing extends Component {
                   Let's go elsewhere.
                 </h1>
                 <p className='landing-paragraph'>
-                  Experience travel seamlessly.
+                  Helping you experience New York City seamlessly.
                 </p>
-                <button type='button' className='btn btn-outline-secondary med-purple-border-btn' onClick={this.handleClick}>Get Started</button>
+                {hasRole(this.props.user, ['visitor']) &&
+                  <button type='button' className='btn btn-outline-secondary med-purple-border-btn' onClick={this.handleClick}>Get Started</button>
+                }
               </Col>
             </Row>
             <Row className='filler-200'/>

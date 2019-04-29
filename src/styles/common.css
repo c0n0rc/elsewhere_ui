@@ -78,3 +78,25 @@
   padding: 20px;
   color: #f44259;
 }
+
+/* ---------------- */
+
+#root .purple-date-field,
+#root .purple-date-field:focus, #root .purple-date-field:active:focus, #root .purple-date-field.active:focus,
+#root .purple-date-field.focus, #root .purple-date-field:active.focus, #root .purple-date-field.active.focus {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #6666FD;
+  color: #495057;
+  outline: none;
+  box-shadow: none;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+#root .purple-date-field:hover {
+  border-color: #5656D8;
+  outline: none;
+  box-shadow: none;
+}

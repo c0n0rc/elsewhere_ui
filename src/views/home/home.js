@@ -5,6 +5,9 @@ import Row from 'react-bootstrap/Row';
 import Landing from './landing.js'
 import Registration from './registration.js'
 
+// Authorization 
+import { hasRole } from '../../utils/auth.js';
+
 
 class Home extends Component {
 
@@ -14,10 +17,16 @@ class Home extends Component {
 
     return (
       <div className='home'>
-        <Landing/>
-        <Row className='filler-400'/>
-        <Registration/>
-        <Row className='filler-100'/>
+        <Landing user={this.props.user}/>
+
+        {hasRole(this.props.user, ['visitor']) &&
+          <div>
+            <Row className='filler-400'/>
+            <Registration/>
+            <Row className='filler-100'/>
+          </div>
+        }
+
       </div>
     );
   }

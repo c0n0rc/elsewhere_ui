@@ -125,6 +125,26 @@
 
 /* ---------------- */
 
+#root .med-purple-btn,
+#root .med-purple-btn:focus, #root .med-purple-btn:active:focus, #root .med-purple-btn.active:focus,
+#root .med-purple-btn.focus, #root .med-purple-btn:active.focus, #root .med-purple-btn.active.focus {
+  font-weight: 600;
+  margin: 20px 0;
+  padding: 10px 20px;
+  color: #fff;
+  border-color: #6666FD;
+  background-color: #6666FD;
+  min-width: 100px;
+  outline: none;
+  box-shadow: none;
+}
+
+#root .med-purple-btn:hover {
+  background-color: #5656D8;
+}
+
+/* ---------------- */
+
 #root .med-purple-icon {
   color: #6666FD;
   background-color: transparent;

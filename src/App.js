@@ -7,22 +7,22 @@ import Header from './views/header.js';
 import Home from './views/home/home.js';
 import Login from './views/login.js';
 import Trip from './views/trip/trip.js';
-import Success from './views/utils/success.js';
 import Logout from './views/utils/logout.js';
 import Unauthorized from './views/utils/unauthorized.js';
 import NotFound from './views/utils/notFound.js';
-import TripPreferences from './views/tripPreferences.js';
+import TripPreferences from './views/trip/tripPreferences.js';
 import Footer from './views/footer.js';
 
 // Authorization 
 import { hasRole } from './utils/auth.js';
-import { user, admin, visitor } from './utils/roles.js';
+import { user } from './utils/roles.js';
 
 class App extends Component {
 
   // Initialize constructor and set state
-  state = {
-    user: visitor
+  constructor (props) {
+    super(props)
+    this.state = { user: user }
   }
 
   // Render components and set routes
@@ -35,23 +35,19 @@ class App extends Component {
           <div className='container-fluid'>
 
             {/* Header */}
-            <Header />
+            <Header user={this.state.user}/>
 
             <Switch>
 
               {/* Home */}
               <Route exact={true} path='/' render={() => (
-                hasRole(this.state.user, ['user', 'admin']) ? (
-                  <Redirect to="/trips"/>
-                ) : (
-                  <Home />
-                )
+                <Home onUpdate={this.onUpdate.bind(this)} user={this.state.user}/>
               )}/>
               
               {/* Login */}
               <Route exact={true} path='/login' render={() => (
                 hasRole(this.state.user, ['visitor', 'admin']) ? (
-                  <Login />
+                  <Login onUpdate={this.onUpdate.bind(this)} user={this.state.user}/>
                 ) : (
                   <Unauthorized />
                 )
@@ -60,32 +56,27 @@ class App extends Component {
               {/* My Trips */}
               <Route exact={true} path='/trips' render={() => (
                 hasRole(this.state.user, ['user', 'admin']) ? (
-                 <Trip />
+                 <Trip onUpdate={this.onUpdate.bind(this)} user={this.state.user}/>
                 ) : (
-                  <Unauthorized />
+                  <Redirect to="/login"/>
                 )
               )}/>
 
               {/* New Trip */}
               <Route exact={true} path='/new_trip' render={() => (
                 hasRole(this.state.user, ['user', 'admin']) ? (
-                  <TripPreferences />
+                  <TripPreferences onUpdate={this.onUpdate.bind(this)} user={this.state.user}/>
                 ) : (
-                  <Unauthorized />
+                  <Redirect to="/login"/>
                 )
-              )}/>
-
-              {/* Trip Created */}
-              <Route exact={true} path='/success' render={() => (
-                <Success />
               )}/>
 
               {/* Logout */}
               <Route exact={true} path='/logout' render={() => (
                 hasRole(this.state.user, ['user', 'admin']) ? (
-                  <Logout />
+                  <Logout onUpdate={this.onUpdate.bind(this)} user={this.state.user}/>
                 ) : (
-                  <Unauthorized />
+                  <Redirect to="/login"/>
                 )
               )}/>
 
@@ -104,15 +95,10 @@ class App extends Component {
   }
 
   // Set user state
-  setUserState(user) {
+  onUpdate(user) {
     this.setState({
       'user': user
     });
-  }
-
-  // Get user state
-  getUserState() {
-    return this.state.user;
   }
 
 }

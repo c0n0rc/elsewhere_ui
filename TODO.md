@@ -1,16 +1,14 @@
 - (Specific @TODO's marked in code)
-- Add API tests
-- Create user component
+- Add error if user is not found 
+- When you load a page, can use spinner until fetch completes 
+- When user goes to a page, check token first, then redirect
+- On logout from token, add message to login page
+- Add 500 error
+
 - Add authorization
-  - User can see "Home", "My Trips", "Account"
-  - User cannot see "Register", "Get Started", "Login"
-  - Visitor can only see "Home", "Register", "Login", "Get Started"
-- Add "Account" page
 - Real "My Trips" page
+  - No trips if empty
 - Real "Itinerary" page
 - Add confirmation window when leaving a page with unsaved changes
-- 404 Page / Unauthorized page 
 - Startup script
 - Build script
-- Add error if user is not found 
-- Common fonts

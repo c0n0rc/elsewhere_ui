@@ -5,6 +5,9 @@ import {Link} from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
+// Authorization 
+import { hasRole } from '../utils/auth.js';
+
 // Images
 import logo from '../images/header_logo.png';
 
@@ -66,17 +69,34 @@ class Header extends Component {
           </Link>
         </Col>
         <Col md={{ span: 5, offset: 3 }}>
-          <Link to='/'>
-            <button type='button' className='btn btn-outline-secondary sml-purple-no-border-btn'>Home</button>
-          </Link>
-          <span className='margin-20'/>
-          <Link to='/trips'>
-            <button type='button' className='btn btn-outline-secondary sml-purple-no-border-btn'>My Trips</button>
-          </Link>
-          <span className='margin-20'/>
-          <Link to='/login'>
-            <button type='button' className='btn btn-outline-secondary sml-purple-border-btn'>Login</button>
-          </Link>
+          <div className='float-right'>
+            {hasRole(this.props.user, ['user', 'admin']) &&
+              <span>
+                <Link to='/trips'>
+                  <button type='button' className='btn btn-outline-secondary sml-purple-no-border-btn'>My Trips</button>
+                </Link>
+                <span className='margin-20'/>
+              </span>
+            }
+
+            {hasRole(this.props.user, ['user', 'admin']) &&
+              <span>
+                <Link to='/logout'>
+                  <button type='button' className='btn btn-outline-secondary sml-purple-border-btn'>Logout</button>
+                </Link>
+                <span className='margin-20'/>
+              </span>
+            }
+
+            {hasRole(this.props.user, ['visitor']) &&
+              <span>
+                <Link to='/login'>
+                  <button type='button' className='btn btn-outline-secondary sml-purple-border-btn'>Login</button>
+                </Link>
+                <span className='margin-20'/>
+              </span>
+            }
+          </div>
         </Col>
       </Row>
     );
