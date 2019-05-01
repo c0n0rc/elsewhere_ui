@@ -1,14 +1,16 @@
 - (Specific @TODO's marked in code)
 - Add error if user is not found 
-- When you load a page, can use spinner until fetch completes 
 - When user goes to a page, check token first, then redirect
 - On logout from token, add message to login page
 - Add 500 error
-
+- Change trip preferences to form
+- Add name to login
+- Add "did timeout" to user
 - Add authorization
 - Real "My Trips" page
   - No trips if empty
 - Real "Itinerary" page
+- When you load a page, can use spinner until fetch completes 
 - Add confirmation window when leaving a page with unsaved changes
 - Startup script
 - Build script

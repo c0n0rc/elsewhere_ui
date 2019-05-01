@@ -74,6 +74,7 @@ class TripPreferences extends Component {
       .then(
         (result) => {
           if (result.error) {
+            // @TODO: Finalize names
             console.error('[tripPreferences.js] POST http://localhost:3003/api/v1/trips error: ' + result.status + ' ' + JSON.stringify(result.error));
           } else {
             console.log('[tripPreferences.js] POST http://localhost:3003/api/v1/trips success');
@@ -88,7 +89,7 @@ class TripPreferences extends Component {
   // Handle submission
   handleSubmitClick = (event) => {
     // Redirect to '/success' on success
-    this.props.history.push('/success');
+    this.props.history.push('/my_trip');
   }
 
   // Recolor each selection

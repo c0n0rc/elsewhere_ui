@@ -17,10 +17,12 @@
   font-family: 'Barlow', sans-serif;
   font-weight: 800;
   color: #6666FD;
+  text-align: center;
 }
 
 .message-body {
   font-size: 25px;
   font-family: 'Montserrat', sans-serif;
   color: #6666FD;
+  text-align: center;
 }

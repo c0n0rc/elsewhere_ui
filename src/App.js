@@ -11,6 +11,7 @@ import Logout from './views/utils/logout.js';
 import Unauthorized from './views/utils/unauthorized.js';
 import NotFound from './views/utils/notFound.js';
 import TripPreferences from './views/trip/tripPreferences.js';
+import TripItinerary from './views/trip/tripItinerary.js';
 import Footer from './views/footer.js';
 
 // Authorization 
@@ -66,6 +67,15 @@ class App extends Component {
               <Route exact={true} path='/new_trip' render={() => (
                 hasRole(this.state.user, ['user', 'admin']) ? (
                   <TripPreferences onUpdate={this.onUpdate.bind(this)} user={this.state.user}/>
+                ) : (
+                  <Redirect to="/login"/>
+                )
+              )}/>
+
+              {/* My Created Trip */}
+              <Route exact={true} path='/my_trip' render={() => (
+                hasRole(this.state.user, ['user', 'admin']) ? (
+                  <TripItinerary onUpdate={this.onUpdate.bind(this)} user={this.state.user}/>
                 ) : (
                   <Redirect to="/login"/>
                 )
